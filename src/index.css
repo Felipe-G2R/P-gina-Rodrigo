@@ -1,0 +1,275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   A CASA SOBRE A ROCHA — Design tokens & utilities
+   Estética: tinta sobre papel · sacra · contemplativa
+   ============================================================ */
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background-color: #F5EFE3;
+    color: #1A1A1A;
+    font-feature-settings: 'liga', 'kern';
+  }
+
+  ::selection {
+    background-color: rgba(201, 154, 107, 0.35);
+    color: #0A2C2A;
+  }
+
+  /* Focus visible — acessibilidade */
+  *:focus-visible {
+    outline: 2px solid #C99A6B;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .container-sacro {
+    @apply max-w-6xl mx-auto px-6;
+  }
+
+  .eyebrow {
+    @apply font-cinzel text-[11px] tracking-ultra uppercase text-brass-dark;
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl leading-tight;
+  }
+
+  .display-title {
+    @apply font-display text-5xl md:text-7xl leading-none;
+  }
+
+  .small-caps {
+    @apply font-caslon uppercase tracking-[0.18em] text-sm;
+  }
+
+  .prose-sacro {
+    @apply font-serif text-lg leading-relaxed text-charcoal/85;
+  }
+
+  .btn-primary {
+    @apply bg-brass text-teal-deep hover:bg-brass-bright px-7 py-4 font-cinzel uppercase tracking-[0.18em] text-xs rounded-sm transition inline-flex items-center justify-center gap-3;
+  }
+
+  .btn-ghost {
+    @apply border border-brass text-brass hover:bg-brass hover:text-teal-deep px-7 py-4 font-cinzel uppercase tracking-[0.18em] text-xs rounded-sm transition inline-flex items-center justify-center gap-3;
+  }
+
+  .ornament-line {
+    @apply h-px w-full;
+    background-image: linear-gradient(to right, transparent, #C99A6B, transparent);
+  }
+
+  .ornament-line-dark {
+    @apply h-px w-full;
+    background-image: linear-gradient(to right, transparent, rgba(201, 154, 107, 0.4), transparent);
+  }
+
+  .card-sacro {
+    @apply bg-parchment border border-brass/25 rounded-sm p-6 transition-colors hover:border-brass/55;
+  }
+
+  .card-dark {
+    @apply bg-teal-darker/95 border border-brass/20 rounded-sm p-6 text-ivory transition-colors hover:border-brass/50;
+  }
+
+  .roman-numeral {
+    @apply font-display text-4xl text-brass;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Paper texture suave para o fundo sacro */
+  .bg-paper {
+    background-color: #F5EFE3;
+    background-image:
+      radial-gradient(at 20% 12%, rgba(201, 154, 107, 0.06) 0%, transparent 45%),
+      radial-gradient(at 85% 80%, rgba(31, 94, 92, 0.05) 0%, transparent 50%);
+  }
+
+  .bg-paper-dark {
+    background-color: #0A2C2A;
+    background-image:
+      radial-gradient(at 25% 18%, rgba(201, 154, 107, 0.12) 0%, transparent 50%),
+      radial-gradient(at 80% 78%, rgba(201, 154, 107, 0.06) 0%, transparent 55%);
+  }
+
+  .shadow-sacro {
+    box-shadow: 0 1px 0 rgba(201, 154, 107, 0.18), 0 0 0 1px rgba(201, 154, 107, 0.08);
+  }
+
+  /* ============================================================
+     LIQUID GLASS — sistema reutilizável
+     ============================================================ */
+
+  /* Glass claro (sobre fundo escuro/teal) */
+  .glass {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.10) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.10),
+      0 20px 40px -20px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Glass dourado/latão (mantém estética sacra) */
+  .glass-brass {
+    background: linear-gradient(
+      135deg,
+      rgba(201, 154, 107, 0.18) 0%,
+      rgba(201, 154, 107, 0.06) 100%
+    );
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(221, 179, 136, 0.30);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.20),
+      0 12px 32px -12px rgba(201, 154, 107, 0.25);
+  }
+
+  /* Glass escuro (sobre fundo claro/pergaminho) */
+  .glass-dark {
+    background: linear-gradient(
+      135deg,
+      rgba(15, 61, 59, 0.78) 0%,
+      rgba(10, 44, 42, 0.65) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(201, 154, 107, 0.22);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 18px 36px -18px rgba(10, 44, 42, 0.55);
+  }
+
+  /* Glass creme (alinhado à logo) */
+  .glass-cream {
+    background: linear-gradient(
+      135deg,
+      rgba(240, 230, 204, 0.92) 0%,
+      rgba(232, 221, 184, 0.82) 100%
+    );
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    border: 1px solid rgba(45, 63, 43, 0.10);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      0 10px 28px -10px rgba(45, 63, 43, 0.18);
+  }
+
+  /* Liquid background — mesh gradient animado */
+  .liquid-bg {
+    background:
+      radial-gradient(at 18% 22%, rgba(201, 154, 107, 0.28) 0%, transparent 50%),
+      radial-gradient(at 78% 18%, rgba(45, 63, 43, 0.32) 0%, transparent 50%),
+      radial-gradient(at 32% 78%, rgba(31, 94, 92, 0.32) 0%, transparent 55%),
+      radial-gradient(at 82% 82%, rgba(155, 59, 71, 0.18) 0%, transparent 55%),
+      linear-gradient(180deg, #0A2C2A 0%, #0F3D3B 100%);
+    background-size: 200% 200%;
+    animation: liquid-shift 22s ease-in-out infinite alternate;
+  }
+
+  /* Botão glass (sobre liquid bg) */
+  .btn-glass {
+    @apply inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full font-cinzel uppercase tracking-[0.18em] text-xs transition-all;
+    background: linear-gradient(135deg, rgba(221, 179, 136, 0.95), rgba(201, 154, 107, 0.85));
+    color: #0A2C2A;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      0 8px 24px -8px rgba(201, 154, 107, 0.55),
+      0 0 0 1px rgba(201, 154, 107, 0.4);
+  }
+  .btn-glass:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.45),
+      0 14px 32px -10px rgba(201, 154, 107, 0.7),
+      0 0 0 1px rgba(221, 179, 136, 0.6);
+  }
+
+  .btn-glass-ghost {
+    @apply inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full font-cinzel uppercase tracking-[0.18em] text-xs transition-all text-ivory;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+  .btn-glass-ghost:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.28);
+    transform: translateY(-1px);
+  }
+
+  /* Floating animation (uso geral) */
+  .float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+  .float-medium {
+    animation: float 4.5s ease-in-out infinite;
+  }
+}
+
+/* ============================================================
+   KEYFRAMES — JS-friendly (CSS animations sem JS pesado)
+   ============================================================ */
+
+@keyframes liquid-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-8px); }
+}
+
+@keyframes glass-shimmer {
+  0%, 100% { box-shadow: inset 0 1px 0 rgba(255,255,255,0.18), 0 20px 40px -20px rgba(0,0,0,0.35); }
+  50%      { box-shadow: inset 0 1px 0 rgba(255,255,255,0.30), 0 24px 50px -16px rgba(201,154,107,0.30); }
+}
+
+/* prefers-reduced-motion: degradação graciosa */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
