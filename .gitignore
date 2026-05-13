@@ -27,6 +27,14 @@ dist-ssr
 # TS build info
 *.tsbuildinfo
 
+# Artifacts gerados por `tsc -b` na raiz (config files transpilados)
+/vite.config.js
+/vite.config.d.ts
+/tailwind.config.js
+/tailwind.config.d.ts
+/postcss.config.js
+/postcss.config.d.ts
+
 # Env
 .env
 .env.local

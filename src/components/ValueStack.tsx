@@ -16,7 +16,7 @@ export function ValueStack() {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-50px' });
-  const [displayTotal, setDisplayTotal] = useState(VALUE_STACK.total);
+  const [displayTotal, setDisplayTotal] = useState<number>(VALUE_STACK.total);
 
   // Animação do contador: de 3885 → 497 quando entra na viewport
   useEffect(() => {
